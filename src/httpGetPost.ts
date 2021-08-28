@@ -4,7 +4,7 @@ export async function fetchGetJSON<T>(url: string): Promise<T> {
   try {
     const res = await axios.get<T>(url);
     return res.data;
-  } catch (err) {
+  } catch (err: any) {
     throw new Error(err.message);
   }
 }
@@ -20,7 +20,7 @@ export async function fetchPostJSON<T, R>(url: string, data?: T): Promise<R> {
       },
     });
     return res.data; // parses JSON response into native JavaScript objects
-  } catch (err) {
+  } catch (err:any) {
     throw new Error(err.message);
   }
 }
