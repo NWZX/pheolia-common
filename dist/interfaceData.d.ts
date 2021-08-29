@@ -1,3 +1,19 @@
+export interface IRechargeStation {
+    id?: string;
+    name: string;
+    chargerCount: number;
+    chargerAvailable: number;
+    powerMin: number;
+    powerMax: number;
+    priceMin: number;
+    priceMax: number;
+    localisation: {
+        lat: number;
+        lng: number;
+    };
+    createdAt: number;
+    updatedAt: number;
+}
 export declare enum ERechargeDevicesState {
     OFFLINE = 0,
     ONLINE = 1,
@@ -10,6 +26,7 @@ export declare enum ERechargeDevicesState {
 export interface IRechargeDevices {
     id?: string;
     deviceUID?: string;
+    stationId: string;
     name: string;
     message: string;
     state: number | ERechargeDevicesState;
