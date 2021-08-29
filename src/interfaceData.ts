@@ -29,7 +29,7 @@ export interface IRechargeStation {
   priceMin: number;
   priceMax: number;
 
-  localisation: ILocation;
+  location: ILocation;
   createdAt: number;
   updatedAt: number;
 }
@@ -55,7 +55,7 @@ export interface IRechargeDevices {
   currentPower: number;
   currentTimeStart: number;
   powerMode: IPowerMode[];
-  localisation: ILocation;
+  location: ILocation;
   createdAt: number;
   updatedAt: number;
 }
@@ -77,7 +77,7 @@ export interface IRechargeSession {
 
   powerMode: IPowerMode;
 
-  localisation: ILocation;
+  location: ILocation;
 
   payementStatus: number | ERechargeSessionStaus;
   createdAt: number;
