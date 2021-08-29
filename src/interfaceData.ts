@@ -1,3 +1,22 @@
+export interface IUser {
+  stripeClientId: string;
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface ILocation {
+  geohash: string;
+  lat: number;
+  lng: number;
+}
+
+export interface IPowerMode {
+  type: 'DC' | 'AC';
+  power: number;
+  price: number;
+  billing: 'time' | 'session';
+}
+
 export interface IRechargeStation {
   id?: string;
   name: string;
@@ -10,10 +29,7 @@ export interface IRechargeStation {
   priceMin: number;
   priceMax: number;
 
-  localisation: {
-    lat: number;
-    lng: number;
-  };
+  localisation: ILocation;
   createdAt: number;
   updatedAt: number;
 }
@@ -38,16 +54,8 @@ export interface IRechargeDevices {
   state: number | ERechargeDevicesState;
   currentPower: number;
   currentTimeStart: number;
-  powerMode: {
-    type: 'DC' | 'AC';
-    power: number;
-    price: number;
-    billing: 'time' | 'session';
-  }[];
-  localisation: {
-    lat: number;
-    lng: number;
-  };
+  powerMode: IPowerMode[];
+  localisation: ILocation;
   createdAt: number;
   updatedAt: number;
 }
@@ -67,25 +75,11 @@ export interface IRechargeSession {
   timeStart: number;
   timeStop: number;
 
-  powerMode: {
-    type: 'DC' | 'AC';
-    power: number;
-    price: number;
-    billing: 'time' | 'session';
-  };
+  powerMode: IPowerMode;
 
-  localisation: {
-    lat: number;
-    lng: number;
-  };
+  localisation: ILocation;
 
   payementStatus: number | ERechargeSessionStaus;
-  createdAt: number;
-  updatedAt: number;
-}
-
-export interface IUser {
-  stripeClientId: string;
   createdAt: number;
   updatedAt: number;
 }
